@@ -1,6 +1,6 @@
 # Private R&D Project Index
 
-This index summarizes private R&D work without exposing source code, credentials, private prompts, customer data, production endpoints, exact model routing logic, or proprietary implementation details.
+This index summarizes private R&D work without exposing source code, credentials, private prompts, customer data, production endpoints, exact model routing logic, unpublished model weights, or proprietary implementation details.
 
 ## Agents-Core
 
@@ -42,6 +42,14 @@ Private local AI/dev infrastructure workspace focused on:
 
 Public details intentionally exclude real ports, hostnames, IP addresses, credentials, internal topology, SSH targets, and operational endpoints.
 
+## BOTAIO
+
+Private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning.
+
+The public case study focuses on infrastructure and operational learning from an AI-assisted local fine-tuning lab for an n8n workflow-specialist model. The work involved ASUS Ascent GX10 / NVIDIA GB10 Grace Blackwell hardware, Qwen2.5-Coder-32B, staged fine-tuning, QLoRA troubleshooting, memory/runtime trade-offs, and inference-readiness planning.
+
+Public details intentionally exclude model weights, private datasets, exact runtime paths, credentials, internal scripts, private logs, production endpoints, and any claim of production readiness without independent evaluation.
+
 ## OpenClaw / ZeroClaw Research
 
 Private research work around local-first agentic systems and isolated execution environments, focused on:
@@ -73,11 +81,3 @@ No production workflow exports, webhook URLs, credentials, customer flows, or in
 Private product/R&D exploration around deterministic fraud-risk workflows.
 
 Public details are intentionally limited because the project sits outside the core AI infrastructure showcase and may introduce product-positioning noise.
-
-## BOTAIO
-
-Private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning.
-
-The public case study focuses on the infrastructure and operational learning from a local fine-tuning lab on ASUS Ascent GX10 / NVIDIA GB10 Grace Blackwell hardware.
-
-Public details intentionally exclude model weights, private datasets, exact runtime paths, credentials, internal scripts, and any claim of production readiness without independent evaluation.
