@@ -65,3 +65,96 @@ Human review gate
    |
    v
 Approved output
+```
+
+## Role separation
+
+### Router / Librarian
+
+Responsible for:
+
+- identifying the task type
+- selecting the right workflow
+- loading only relevant standards
+- avoiding unnecessary context bloat
+
+### Architect
+
+Responsible for:
+
+- system design
+- trade-off analysis
+- implementation plan
+- risk identification
+- rollback thinking
+
+### Builder
+
+Responsible for:
+
+- scoped implementation
+- minimal diff discipline
+- following repository conventions
+- avoiding speculative rewrites
+
+### Auditor
+
+Responsible for:
+
+- reviewing correctness
+- checking safety boundaries
+- validating test coverage
+- identifying drift from plan
+
+### Ops
+
+Responsible for:
+
+- release readiness
+- runbooks
+- deployment notes
+- operational caveats
+
+## Safety boundaries
+
+Human review is required before:
+
+- deleting files or data
+- changing production configuration
+- publishing public content
+- modifying credentials or access
+- merging unreviewed code
+- running irreversible operations
+- sending external messages
+- changing security-sensitive defaults
+
+## Operational signals
+
+The system should make the following visible:
+
+- task type
+- selected workflow
+- model/tool used
+- assumptions
+- files changed
+- validation performed
+- unresolved risks
+- review outcome
+- rollback notes
+
+## What is intentionally excluded
+
+This public note does not include:
+
+- private prompts
+- exact routing logic
+- internal directory paths
+- executable workflow definitions
+- private skill contents
+- production configuration
+- credentials or secrets
+- proprietary implementation details
+
+## Current status
+
+Private R&D. Public documentation is limited to sanitized architecture notes and operating principles.
