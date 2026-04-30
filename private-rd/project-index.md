@@ -76,6 +76,8 @@ Public details are intentionally limited because the project sits outside the co
 
 ## BOTAIO
 
-Private product/R&D exploration.
+Private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning.
 
-Public details are intentionally limited until naming, scope, and disclosure boundaries are finalized.
+The public case study focuses on the infrastructure and operational learning from a local fine-tuning lab on ASUS Ascent GX10 / NVIDIA GB10 Grace Blackwell hardware.
+
+Public details intentionally exclude model weights, private datasets, exact runtime paths, credentials, internal scripts, and any claim of production readiness without independent evaluation.
