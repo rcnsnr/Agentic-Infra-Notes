@@ -2,7 +2,7 @@
 
 Sanitized engineering notes on AI-assisted infrastructure, agentic workflows, LLMOps, and self-hosted automation control planes.
 
-This repository documents architecture thinking, operating principles, safety boundaries, and workflow patterns from private R&D work. It does not expose production source code, credentials, private prompts, real endpoints, customer data, internal workflow exports, or proprietary routing logic.
+This repository documents architecture thinking, operating principles, safety boundaries, and workflow patterns from private R&D work. It does not expose production source code, credentials, private prompts, real endpoints, customer data, internal workflow exports, proprietary routing logic, or unpublished model weights.
 
 ## Scope
 
@@ -12,6 +12,7 @@ This repository focuses on:
 - Multi-agent development systems
 - Self-hosted automation control planes
 - Local AI/dev infrastructure
+- Local fine-tuning infrastructure experiments
 - Human-in-the-loop execution boundaries
 - LLMOps observability and cost control
 - Agentic workflow safety and operational review
@@ -23,10 +24,10 @@ The following private projects are referenced only through sanitized notes:
 - `Agents-Core` — multi-agent engineering workflow fabric
 - `Aegis-Forge` — self-hosted AI engineering control plane
 - `Local-Core` — local AI/dev infrastructure workspace
+- `BOTAIO` — private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning
 - `OpenClaw / ZeroClaw Research` — agentic systems risk review and isolated execution research
 - `n8n workflow patterns` — reusable automation patterns with explicit safety boundaries
 - `Trustlayer` — private product/R&D exploration, intentionally limited here
-- `BOTAIO` — private product/R&D exploration, intentionally limited here
 
 ## Documentation map
 
@@ -34,6 +35,8 @@ The following private projects are referenced only through sanitized notes:
 - [`case-studies/agents-core.md`](case-studies/agents-core.md)
 - [`case-studies/aegis-forge.md`](case-studies/aegis-forge.md)
 - [`case-studies/local-core.md`](case-studies/local-core.md)
+- [`case-studies/botaio-n8n-finetuning-lab.md`](case-studies/botaio-n8n-finetuning-lab.md)
+- [`model-cards/qwen2.5-coder-32b-n8n-finetune.md`](model-cards/qwen2.5-coder-32b-n8n-finetune.md)
 - [`research/openclaw-zeroclaw-risk-review.md`](research/openclaw-zeroclaw-risk-review.md)
 - [`patterns/n8n-workflow-automation-patterns.md`](patterns/n8n-workflow-automation-patterns.md)
 - [`checklists/agentic-development-safety-checklist.md`](checklists/agentic-development-safety-checklist.md)
@@ -53,6 +56,8 @@ This repository intentionally excludes:
 - exact model routing rules
 - provider API keys, cost ledgers, or private usage data
 - production n8n workflow exports
+- private datasets and unpublished model weights
+- exact local filesystem paths
 - proprietary implementation details
 
 ## Engineering principles
@@ -63,7 +68,7 @@ This repository intentionally excludes:
 - Use local or lower-cost models for routine tasks where safe.
 - Reserve stronger models for reasoning-heavy work.
 - Require human approval for destructive, credential-related, financial, production, or externally visible actions.
-- Treat context, cost, and operational risk as first-class engineering constraints.
+- Treat context, cost, memory, hardware/runtime compatibility, and operational risk as first-class engineering constraints.
 
 ## Status
 
