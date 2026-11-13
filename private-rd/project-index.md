@@ -44,7 +44,7 @@ Public details intentionally exclude real ports, hostnames, IP addresses, creden
 
 ## BOTAIO
 
-Private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning.
+Historical private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning. The project is on hold.
 
 The public case study focuses on infrastructure and operational learning from an AI-assisted local fine-tuning lab for an n8n workflow-specialist model. The work involved ASUS Ascent GX10 / NVIDIA GB10 Grace Blackwell hardware, Qwen2.5-Coder-32B, staged fine-tuning, QLoRA troubleshooting, memory/runtime trade-offs, and inference-readiness planning.
 

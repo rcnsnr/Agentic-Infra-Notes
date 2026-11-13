@@ -2,7 +2,9 @@
 
 ## Summary
 
-BOTAIO includes a private AI-assisted engineering lab focused on local fine-tuning infrastructure for an n8n workflow-specialist model.
+BOTAIO was a private AI-assisted engineering lab focused on local fine-tuning infrastructure for an n8n workflow-specialist model.
+
+**Project status: on hold.** This case study preserves historical engineering lessons and does not describe an active continuation of the project.
 
 The goal was to explore whether a coding-oriented LLM could be adapted to generate valid, structured, and reviewable n8n workflow JSON from natural language requests.
 
@@ -312,6 +314,6 @@ This case study does not claim:
 
 ## Current status
 
-Training-stage documentation exists. Independent inference and evaluation results are not published yet.
+The project is on hold. Training-stage documentation exists; independent inference and evaluation results are not published.
 
-The next public-safe milestone would be a sanitized evaluation report showing JSON validity, n8n import success, failure classes, and human-review outcomes without exposing private data or production workflows.
+The evaluation plan above records what would be required before any model-quality or production-readiness claim. It is not a commitment to resume development.

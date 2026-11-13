@@ -1,75 +1,78 @@
 # Agentic Infra Notes
 
-Sanitized engineering notes on AI-assisted infrastructure, agentic workflows, LLMOps, and self-hosted automation control planes.
+Sanitized engineering notes on AI-assisted development, agent workflows, LLM infrastructure, and operational safety.
 
-This repository documents architecture thinking, operating principles, safety boundaries, and workflow patterns from private R&D work. It does not expose production source code, credentials, private prompts, real endpoints, customer data, internal workflow exports, proprietary routing logic, or unpublished model weights.
+This repository shares architectural reasoning, workflow patterns, and engineering lessons from private R&D. It contains documentation rather than the private implementations. Experiments, design guidance, and independently validated results are distinguished below.
 
-## Scope
+## Start here
 
-This repository focuses on:
+### 1. AI-assisted engineering workflow
 
-- AI-assisted engineering workflows
-- Multi-agent development systems
-- Self-hosted automation control planes
-- Local AI/dev infrastructure
-- Local fine-tuning infrastructure experiments
-- Human-in-the-loop execution boundaries
-- LLMOps observability and cost control
-- Agentic workflow safety and operational review
+Read the [Agents-Core case study](case-studies/agents-core.md) for task routing, role separation, context discipline, and human review boundaries. Then use the [development safety checklist](checklists/agentic-development-safety-checklist.md) to inspect approval and validation concerns.
 
-## Private R&D referenced
+**Evidence type:** sanitized architecture and operating principles. Private implementation code and comparative performance results are not published here.
 
-The following private projects are referenced only through sanitized notes:
+### 2. Local AI infrastructure and debugging
 
-- `Agents-Core` — multi-agent engineering workflow fabric
-- `Aegis-Forge` — self-hosted AI engineering control plane
-- `Local-Core` — local AI/dev infrastructure workspace
-- `BOTAIO` — private AI-assisted R&D exploration around n8n workflow automation and local model fine-tuning
-- `OpenClaw / ZeroClaw Research` — agentic systems risk review and isolated execution research
-- `n8n workflow patterns` — reusable automation patterns with explicit safety boundaries
-- `Trustlayer` — private product/R&D exploration, intentionally limited here
+Read the [BOTAIO fine-tuning lab](case-studies/botaio-n8n-finetuning-lab.md) for Arm/Blackwell compatibility, QLoRA-oriented fallback decisions, memory pressure, and recoverable training workflows. The [draft model card](model-cards/qwen2.5-coder-32b-n8n-finetune.md) records intended use and evaluation limits.
+
+**Evidence type:** historical lab documentation. BOTAIO is on hold. Independent inference and model-quality evaluation results are not published; this work is not a production-readiness claim.
+
+### 3. Operations and safety
+
+Start with the [LLMOps observability checklist](checklists/llmops-observability-checklist.md), [n8n workflow patterns](patterns/n8n-workflow-automation-patterns.md), and [agentic systems risk review](research/openclaw-zeroclaw-risk-review.md).
+
+**Evidence type:** operational guidance and design review. These are not measured service-level results or a certified security assessment.
+
+## Local LLM research
+
+The Hermes research direction explores a local-model assistant with scoped handoffs to coding tools such as Claude Code or Codex CLI. Research questions include model/runtime compatibility, tool-call reliability, context limits, and the boundary between local inference and optional cloud services.
+
+The design priorities are:
+
+- Separate assistant data, task coordination, and code execution into explicit trust boundaries.
+- Give workers only task-scoped files and capabilities; keep administrative credentials outside model-visible context.
+- Validate with synthetic tasks before allowing access to personal data or external accounts.
+- Record correctness, failure modes, latency, and resource use before claiming quality or cost improvements.
+- Plan version pinning, backups, restore checks, and rollback before operational rollout.
+
+**Status:** research and architecture design. This repository does not publish a validated Hermes deployment, a completed coding-agent integration, or performance benchmarks. This is separate from the historical BOTAIO fine-tuning experiment.
+
+Upstream references: [Hermes model providers](https://hermes-agent.nousresearch.com/docs/integrations/providers), [Hermes security](https://hermes-agent.nousresearch.com/docs/user-guide/security), and [NVIDIA's local-LLM playbook](https://build.nvidia.com/spark/hermes-agent). These establish available integration paths, not results from this lab.
 
 ## Documentation map
 
-- [`private-rd/project-index.md`](private-rd/project-index.md)
-- [`case-studies/agents-core.md`](case-studies/agents-core.md)
-- [`case-studies/aegis-forge.md`](case-studies/aegis-forge.md)
-- [`case-studies/local-core.md`](case-studies/local-core.md)
-- [`case-studies/botaio-n8n-finetuning-lab.md`](case-studies/botaio-n8n-finetuning-lab.md)
-- [`model-cards/qwen2.5-coder-32b-n8n-finetune.md`](model-cards/qwen2.5-coder-32b-n8n-finetune.md)
-- [`research/openclaw-zeroclaw-risk-review.md`](research/openclaw-zeroclaw-risk-review.md)
-- [`patterns/n8n-workflow-automation-patterns.md`](patterns/n8n-workflow-automation-patterns.md)
-- [`checklists/agentic-development-safety-checklist.md`](checklists/agentic-development-safety-checklist.md)
-- [`checklists/llmops-observability-checklist.md`](checklists/llmops-observability-checklist.md)
-- [`SECURITY.md`](SECURITY.md)
+- [Private R&D project index](private-rd/project-index.md)
+- [Agents-Core: engineering workflow fabric](case-studies/agents-core.md)
+- [Aegis-Forge: control-plane design](case-studies/aegis-forge.md)
+- [Local-Core: local development infrastructure](case-studies/local-core.md)
+- [BOTAIO: historical fine-tuning lab](case-studies/botaio-n8n-finetuning-lab.md)
+- [Qwen2.5-Coder-32B: draft model card](model-cards/qwen2.5-coder-32b-n8n-finetune.md)
+- [OpenClaw / ZeroClaw: risk review](research/openclaw-zeroclaw-risk-review.md)
+- [n8n workflow automation patterns](patterns/n8n-workflow-automation-patterns.md)
+- [Agentic development safety checklist](checklists/agentic-development-safety-checklist.md)
+- [LLMOps observability checklist](checklists/llmops-observability-checklist.md)
+- [Security and disclosure policy](SECURITY.md)
 
-## Disclosure boundary
+## Decision records
 
-This repository intentionally excludes:
-
-- source code from private projects
-- real system prompts or private instruction chains
-- credentials, tokens, keys, cookies, or `.env` files
-- real service endpoints, IP addresses, hostnames, ports, or internal URLs
-- customer data or customer-specific workflows
-- production architecture diagrams with implementation-level details
-- exact model routing rules
-- provider API keys, cost ledgers, or private usage data
-- production n8n workflow exports
-- private datasets and unpublished model weights
-- exact local filesystem paths
-- proprietary implementation details
+The three entries in [adr/](adr/) are proposed public decision records with context, alternatives, consequences, and validation plans. They formalize principles described in the linked notes and await owner review. They are not accepted decisions or evidence of runtime enforcement.
 
 ## Engineering principles
 
 - Prefer reproducible setups over manual configuration.
-- Keep automation observable, reviewable, and reversible.
 - Separate planning, execution, review, and operational ownership.
-- Use local or lower-cost models for routine tasks where safe.
-- Reserve stronger models for reasoning-heavy work.
-- Require human approval for destructive, credential-related, financial, production, or externally visible actions.
-- Treat context, cost, memory, hardware/runtime compatibility, and operational risk as first-class engineering constraints.
+- Keep automation observable, reviewable, and reversible.
+- Treat context, cost, hardware/runtime compatibility, and operational risk as engineering constraints.
+- Make human approval boundaries explicit for destructive, credential-related, financial, production, and externally visible actions.
+- Keep design intent separate from demonstrated behavior.
+
+## Disclosure boundary
+
+This repository intentionally excludes private source code, prompts, routing logic, credentials, customer data, production workflow exports, real endpoints, machine-specific paths, private datasets, and unpublished model weights.
+
+See [SECURITY.md](SECURITY.md) for the publication review checklist.
 
 ## Status
 
-Active notes repository. Content is intentionally sanitized and incomplete by design.
+Public documentation collection with intentionally limited disclosure. Each case study states its evidence boundaries. The historical BOTAIO experiment is on hold; its evaluation plans describe possible future validation, not a scheduled continuation.

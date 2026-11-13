@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft / private R&D.
+Historical draft / private R&D. The BOTAIO project is on hold.
 
 Model weights are not published from this repository. This file is a sanitized public model card for documentation and portfolio purposes only.
 
@@ -232,6 +232,6 @@ Controlled deployment decision
 
 ## Current status
 
-Training-stage documentation exists. Independent inference and evaluation results are not published yet.
+The BOTAIO project is on hold. Training-stage documentation exists; independent inference and evaluation results are not published.
 
-This model card should be updated only after a sanitized evaluation report is available.
+The evaluation plan is retained as a documentation requirement for any future model-quality claim, not as a scheduled continuation.
